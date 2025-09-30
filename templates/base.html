@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Quxiang Technology Limited{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Top Info Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-info">
+        <span class="contact-info">
+          <span class="info-item">
+            <i class="icon">✉️</i>
+            <span>info@quxiang-tech.com</span>
+          </span>
+          <span class="info-item">
+            <i class="icon">📞</i>
+            <span>+852 5801 0458</span>
+          </span>
+        </span>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="WeChat">
+            <span class="social-icon">💬</span>
+            <span class="social-text">WeChat</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="/" class="logo" aria-label="Quxiang Technology Limited">
+          <img src="{{ url_for('static', filename='svg/logo1.svg') }}" alt="Quxiang Technology Limited" class="logo-img-main">
+        </a>
+        <nav class="main-nav">
+          <a href="/" class="nav-link {% if page == 'home' %}active{% endif %}">
+            <span class="nav-text">MAIN</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="/about" class="nav-link {% if page == 'about' %}active{% endif %}">
+            <span class="nav-text">ABOUT US</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="/technologies" class="nav-link {% if page == 'technologies' %}active{% endif %}">
+            <span class="nav-text">TECHNOLOGIES</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="/developments" class="nav-link {% if page == 'developments' %}active{% endif %}">
+            <span class="nav-text">DEVELOPMENTS</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="/news" class="nav-link {% if page == 'news' %}active{% endif %}">
+            <span class="nav-text">NEWS</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="/contacts" class="nav-link {% if page == 'contacts' %}active{% endif %}">
+            <span class="nav-text">CONTACTS</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </nav>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo footer-logo" aria-label="Quxiang Technology Limited">
+            <img src="{{ url_for('static', filename='svg/logo1.svg') }}" alt="Quxiang Technology Limited" class="logo-img-footer">
+          </div>
+          <p>Expert in electronics, embedded systems, and IoT solutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>IMPORTANT</h4>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/technologies">Technologies</a></li>
+            <li><a href="/developments">Developments</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>EMAIL</h4>
+          <p>info@quxiang-tech.com</p>
+          <h4>PHONE</h4>
+          <p>+852 5801 0458</p>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACTS</h4>
+          <address>
+            Quxiang Technology Limited<br>
+            RM4, 16/F HO KING COMM CTR<br>
+            2-16 FAYUEN ST, MONGKOK<br>
+            KOWLOON, HONG KONG
+          </address>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Quxiang Technology Limited. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-quart', once: true });
+
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+      });
+    }
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    }
+
+    // Hero slider functionality (only if hero-slider exists)
+    const heroSlider = document.getElementById('hero-slider');
+    if (heroSlider) {
+      const heroImages = [
+        'https://via.placeholder.com/1920x800?text=Circuit+Board',
+        'https://via.placeholder.com/1920x800?text=IoT+Network',
+        'https://via.placeholder.com/1920x800?text=Microcontroller',
+        'https://via.placeholder.com/1920x800?text=Wireless+Signal',
+        'https://via.placeholder.com/1920x800?text=Embedded+Software'
+      ];
+
+      let currentIndex = 0;
+
+      // Создаём фоновые элементы
+      heroImages.forEach((src, index) => {
+        const bg = document.createElement('div');
+        bg.className = 'hero-bg';
+        bg.style.backgroundImage = `url(${src})`;
+        if (index === 0) bg.classList.add('active');
+        heroSlider.appendChild(bg);
+      });
+
+      // Функция смены фона
+      function changeHeroBackground() {
+        const backgrounds = document.querySelectorAll('.hero-bg');
+        backgrounds[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        backgrounds[currentIndex].classList.add('active');
+      }
+
+      // Запускаем смену каждые 5 секунд
+      setInterval(changeHeroBackground, 5000);
+    }
+
+    // Partners carousel functionality
+    const partnersCarousel = document.querySelector('.partners-carousel');
+    if (partnersCarousel) {
+      const partnersTrack = document.querySelector('.partners-track');
+      const partnerItems = document.querySelectorAll('.partner-item');
+      
+      // Add click handlers for partner items
+      partnerItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          // Add a subtle animation effect
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 150);
+          
+          // You can add more functionality here, like opening a modal or navigating to partner page
+          console.log(`Clicked on partner ${index + 1}`);
+        });
+      });
+      
+      // Pause animation when user hovers over carousel
+      partnersCarousel.addEventListener('mouseenter', function() {
+        partnersTrack.style.animationPlayState = 'paused';
+      });
+      
+      partnersCarousel.addEventListener('mouseleave', function() {
+        partnersTrack.style.animationPlayState = 'running';
+      });
+      
+      // Reduce motion for users who prefer it
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        partnersTrack.style.animation = 'none';
+      }
+    }
+  </script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</html>

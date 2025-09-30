@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | Quxiang Technology Limited{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- About Us Header -->
+<section class="section-header">
+  <div class="container">
+    <h1>About Quxiang</h1>
+  </div>
+</section>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="about-layout">
+    <!-- Left Column: refreshed copy -->
+    <div class="about-content">
+      <h2>We build real‑world solutions</h2>
+      <p>Quxiang Technology Limited is an engineering team focused on practical products for everyday life. We combine electronics, sensors, connectivity and software to reduce energy costs, improve comfort and increase safety for homes, small businesses and municipalities.</p>
+
+      <h3>What we do</h3>
+      <ul>
+        <li><strong>Green Energy:</strong> solar PV design, energy storage, grid integration and monitoring.</li>
+        <li><strong>Heating & HVAC:</strong> heat‑pump control, smart thermostats, boiler room automation.</li>
+        <li><strong>Smart City:</strong> EV charging, street lighting, telemetry, device management platforms.</li>
+        <li><strong>Smart Home:</strong> lighting, climate and security with Matter/Thread/Voice support.</li>
+      </ul>
+
+      <p>We take responsibility for the entire lifecycle: concept, prototypes, pilots, production ramp‑up and maintenance hand‑over. Customers receive complete documentation and IP rights for the finished product.</p>
+
+      <div class="about-image-container">
+        <img src="{{ url_for('static', filename='images/Technology.jpg') }}" alt="Quxiang engineering and technology" class="about-image">
+      </div>
+    </div>
+
+    <!-- Right Sidebar: keep form, simplify widgets -->
+    <div class="sidebar">
+      <div class="sidebar-widget">
+        <h3>CONTACT US</h3>
+        <form>
+          <label>Name:</label>
+          <input type="text" name="name" required>
+          <label>Email:</label>
+          <input type="email" name="email" required>
+          <label>Message:</label>
+          <textarea name="message" rows="5" required></textarea>
+          <button type="submit" class="btn">SEND</button>
+        </form>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/technologies">Technologies</a></li>
+          <li><a href="/developments">Developments</a></li>
+          <li><a href="/news">News</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

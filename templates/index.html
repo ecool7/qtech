@@ -1,0 +1,1424 @@
+{% extends "base.html" %}
+
+{% block title %}Quxiang Technology Limited | Electronics & IoT Solutions{% endblock %}
+
+{% block content %}
+<!-- Hero with Background Carousel -->
+<section class="hero" id="hero-slider">
+  <!-- Background Image Carousel -->
+  <div class="hero-carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="{{ url_for('static', filename='images/back1.jpg') }}" alt="Circuit Design" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back2.jpg') }}" alt="IoT Platform" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back3.jpg') }}" alt="Technology Network" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back4.jpg') }}" alt="STM32 Microcontroller" class="carousel-image">
+      </div>
+    </div>
+    <div class="carousel-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title">
+        <span class="title-line">SMART ENERGY</span>
+        <span class="title-line highlight">FOR EVERYDAY LIFE</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        Green energy, heating, agriculture, and smart‑home solutions for real life.
+      </p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+        <a href="#contacts" class="btn btn-primary">
+          <span>CONTACT US</span>
+          <div class="btn-effect"></div>
+        </a>
+        <a href="/technologies" class="btn btn-secondary">
+          <span>OUR SOLUTIONS</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+    <div class="scroll-arrow"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- Core Competencies -->
+<section class="section competencies-section alt-1" data-aos="fade-up">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+      <h2 class="section-title">
+        <span class="title-text">Our Core</span>
+        <span class="title-text highlight">Competencies</span>
+      </h2>
+      <p class="section-subtitle">Civil technologies that save energy, improve comfort, and increase efficiency</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="icon-bg">☀️</div>
+            <div class="icon-pulse"></div>
+      </div>
+        <h3 class="service-title">GREEN ENERGY</h3>
+        <p class="service-desc">Solar, wind and energy efficiency solutions for homes and small businesses.</p>
+          <div class="service-features">
+            <span class="feature-tag">Solar PV</span>
+            <span class="feature-tag">Energy Storage</span>
+            <span class="feature-tag">Smart Inverters</span>
+      </div>
+      </div>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="icon-bg">♨️</div>
+            <div class="icon-pulse"></div>
+          </div>
+        <h3 class="service-title">HEATING & HVAC</h3>
+        <p class="service-desc">Smart heating control, heat pumps, and energy‑saving automation for buildings.</p>
+          <div class="service-features">
+            <span class="feature-tag">Heat Pumps</span>
+            <span class="feature-tag">Smart Thermostats</span>
+            <span class="feature-tag">Efficiency</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="600">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="icon-bg">🌾</div>
+            <div class="icon-pulse"></div>
+          </div>
+        <h3 class="service-title">AGRICULTURE</h3>
+        <p class="service-desc">Monitoring irrigation, climate and livestock with sensors and automation.</p>
+          <div class="service-features">
+            <span class="feature-tag">Smart Irrigation</span>
+            <span class="feature-tag">Soil Sensors</span>
+            <span class="feature-tag">Telemetry</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="600">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="icon-bg">🏠</div>
+            <div class="icon-pulse"></div>
+          </div>
+        <h3 class="service-title">SMART HOME</h3>
+        <p class="service-desc">Comfort, safety and energy saving: lighting, climate, security and voice control.</p>
+          <div class="service-features">
+            <span class="feature-tag">Lighting</span>
+            <span class="feature-tag">Security</span>
+            <span class="feature-tag">Voice Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about-section alt-2" id="about" data-aos="fade-up">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col-text" data-aos="fade-right" data-aos-duration="800">
+        <div class="section-badge">About Us</div>
+        <h2 class="section-heading">
+          <span class="heading-line">Technology for</span>
+          <span class="heading-line highlight">Better Living</span>
+        </h2>
+        <div class="text-content">
+          <p class="lead-text">Quxiang Technology Limited builds practical solutions for the civilian sector: green energy, heating and HVAC, agriculture, and smart home.</p>
+        <p>We combine electronics, sensors, wireless connectivity, and software to cut energy costs and increase comfort and efficiency—from private homes to small businesses.</p>
+      </div>
+        <div class="stats-row">
+          <div class="stat-item" data-aos="count-up" data-target="50">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Projects</div>
+      </div>
+          <div class="stat-item" data-aos="count-up" data-target="15">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years</div>
+          </div>
+          <div class="stat-item" data-aos="count-up" data-target="100">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Quality</div>
+          </div>
+        </div>
+      </div>
+      <div class="image-container" data-aos="fade-left" data-aos-duration="800">
+        <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/index1.png') }}" alt="Technology Network Diagram" class="full-width-img">
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <div class="tech-indicator">
+                <div class="indicator-dot"></div>
+                <span>Advanced Technology</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies -->
+<section class="section technologies-section alt-2" id="technologies" data-aos="fade-up">
+  <div class="container">
+    <div class="two-col">
+      <div class="image-container" data-aos="fade-right" data-aos-duration="800">
+        <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/index2.png') }}" alt="Circuit Board Close-up" class="full-width-img">
+          <div class="circuit-overlay">
+            <div class="circuit-line circuit-line-1"></div>
+            <div class="circuit-line circuit-line-2"></div>
+            <div class="circuit-line circuit-line-3"></div>
+            <div class="circuit-dot circuit-dot-1"></div>
+            <div class="circuit-dot circuit-dot-2"></div>
+            <div class="circuit-dot circuit-dot-3"></div>
+      </div>
+        </div>
+      </div>
+      <div class="two-col-text" data-aos="fade-left" data-aos-duration="800">
+        <div class="section-badge">Innovation</div>
+        <h2 class="section-heading">
+          <span class="heading-line">It all starts</span>
+          <span class="heading-line highlight">with an idea.</span>
+        </h2>
+        <div class="text-content">
+          <p class="lead-text">Quxiang can take full responsibility for your product — from concept and design to mass production and post-launch support.</p>
+        <p>Our expertise includes high-speed microprocessors, power electronics, embedded software, and IoT platforms.</p>
+        </div>
+        <div class="tech-highlights">
+          <div class="highlight-item">
+            <div class="highlight-text">
+              <strong>Green Energy</strong>
+              <span>Solar PV, inverters, home energy storage</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-text">
+              <strong>Heating & HVAC</strong>
+              <span>Heat pumps, smart thermostats, climate control</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-text">
+              <strong>Smart Home & Agriculture</strong>
+              <span>Lighting, security, irrigation and soil sensors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Developments -->
+<section class="section developments-section alt-1" id="developments" data-aos="fade-up">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+      <h2 class="section-title">
+        <span class="title-text">Our Latest</span>
+        <span class="title-text highlight">Developments</span>
+      </h2>
+      <p class="section-subtitle">Innovative solutions pushing the boundaries of technology</p>
+    </div>
+    <div class="card-grid">
+      <div class="product-card" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600">
+        <div class="card-image">
+        <img src="{{ url_for('static', filename='images/robot.jpg') }}" alt="2.4GHz Module" class="product-img">
+          <div class="card-overlay">
+            <div class="overlay-content">
+              <div class="tech-badge">Wireless</div>
+              <div class="card-action">
+                <a href="/news/1" class="view-details-link">
+                  <span>View Details</span>
+                  <div class="action-arrow">→</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Delivery robot</h3>
+          <p class="card-description">Autonomous delivery robot for smart city logistics and last-mile delivery solutions.</p>
+        </div>
+      </div>
+      <div class="product-card" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">
+        <div class="card-image">
+        <img src="{{ url_for('static', filename='images/charge.jpg') }}" alt="XJ500 Block" class="product-img">
+          <div class="card-overlay">
+            <div class="overlay-content">
+              <div class="tech-badge">Industrial</div>
+              <div class="card-action">
+                <a href="/news/2" class="view-details-link">
+                  <span>View Details</span>
+                  <div class="action-arrow">→</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">SMART CHARGER STATION</h3>
+          <p class="card-description">Intelligent EV charging station with smart grid integration and renewable energy optimization.</p>
+        </div>
+      </div>
+      <div class="product-card" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="600">
+        <div class="card-image">
+        <img src="{{ url_for('static', filename='images/cleverdom.jpg') }}" alt="XECU Unit" class="product-img">
+          <div class="card-overlay">
+            <div class="overlay-content">
+              <div class="tech-badge">Automotive</div>
+              <div class="card-action">
+                <a href="/news/4" class="view-details-link">
+                  <span>View Details</span>
+                  <div class="action-arrow">→</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">SMART HOME</h3>
+          <p class="card-description">Integrated smart home automation system with IoT sensors, energy management, and voice control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contacts -->
+<section class="section contacts-section alt-2" id="contacts" data-aos="fade-up">
+  <div class="container" style="text-align: center;">
+    <div class="contacts-content" data-aos="fade-up" data-aos-duration="800">
+      <h2 class="section-title">
+        <span class="title-text">Get in</span>
+        <span class="title-text highlight">Touch</span>
+      </h2>
+      <p class="section-subtitle" style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+      Ready to bring your idea to life? Contact Quxiang Technology Limited for a consultation.
+    </p>
+      <div class="contact-actions">
+        <a href="mailto:info@quxiang-tech.com" class="btn btn-primary">
+          <span>SEND EMAIL</span>
+          <div class="btn-effect"></div>
+        </a>
+        <a href="/contacts" class="btn btn-secondary">
+          <span>VIEW CONTACTS</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Carousel -->
+<section class="partners-section">
+  <div class="container">
+    <div class="partners-header">
+      <h3>Our Technology Partners</h3>
+      <p>Trusted by leading technology companies worldwide</p>
+    </div>
+    <div class="partners-carousel">
+      <div class="partners-track">
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/1.svg') }}" alt="Partner 1" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">1</span></div>
+          </div>
+        </div>
+        
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/3.svg') }}" alt="Partner 3" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">3</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/4.svg') }}" alt="Partner 4" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">4</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/5.svg') }}" alt="Partner 5" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">5</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/6.svg') }}" alt="Partner 6" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">6</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/7.svg') }}" alt="Partner 7" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">7</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/8.svg') }}" alt="Partner 8" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">8</span></div>
+          </div>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/1.svg') }}" alt="Partner 1" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">1</span></div>
+          </div>
+        </div>
+        
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/3.svg') }}" alt="Partner 3" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">3</span></div>
+      </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/4.svg') }}" alt="Partner 4" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">4</span></div>
+      </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/5.svg') }}" alt="Partner 5" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">5</span></div>
+      </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/6.svg') }}" alt="Partner 6" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">6</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/7.svg') }}" alt="Partner 7" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">7</span></div>
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="partner-logo">
+            <img src="{{ url_for('static', filename='svg/8.svg') }}" alt="Partner 8" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="logo-fallback" style="display: none;"><span class="logo-text">Partner</span><span class="logo-subtitle">8</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Enhanced Hero Section with Background Carousel */
+.hero {
+  position: relative;
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+.hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4) blur(1px);
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.25) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-text {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-line {
+  display: block;
+  opacity: 0;
+  animation: slideInUp 1s ease-out forwards;
+}
+
+.title-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.title-line:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.title-line.highlight {
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.4);
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.btn-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover .btn-effect {
+  left: 100%;
+}
+
+/* Contact Section Buttons */
+.contacts-section .btn {
+  background: var(--accent);
+  color: white;
+  border: 2px solid var(--accent);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.contacts-section .btn:hover {
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.contacts-section .contact-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.scroll-arrow {
+  width: 2px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+}
+
+/* Enhanced Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-text {
+  display: block;
+}
+
+.title-text.highlight {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Enhanced Service Cards */
+.service-card {
+  background: white;
+  border-radius: 20px;
+  padding: 0;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-card-inner {
+  padding: 2.5rem 2rem;
+}
+
+.service-icon {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-bg {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 2;
+}
+
+.icon-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.service-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.service-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.service-features {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Enhanced About Section */
+.section-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heading-line.highlight {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lead-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Image Enhancements */
+.image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.tech-indicator {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Circuit Animation */
+.circuit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.circuit-line {
+  position: absolute;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.circuit-line-1 {
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  height: 2px;
+  animation: circuitFlow 3s ease-in-out infinite;
+}
+
+.circuit-line-2 {
+  top: 60%;
+  right: 10%;
+  width: 50%;
+  height: 2px;
+  animation: circuitFlow 3s ease-in-out infinite 1s;
+}
+
+.circuit-line-3 {
+  top: 40%;
+  left: 20%;
+  width: 2px;
+  height: 40%;
+  animation: circuitFlow 3s ease-in-out infinite 2s;
+}
+
+.circuit-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: circuitPulse 2s ease-in-out infinite;
+}
+
+.circuit-dot-1 {
+  top: 20%;
+  left: 70%;
+  animation-delay: 0s;
+}
+
+.circuit-dot-2 {
+  top: 60%;
+  right: 60%;
+  animation-delay: 0.7s;
+}
+
+.circuit-dot-3 {
+  top: 40%;
+  left: 20%;
+  animation-delay: 1.4s;
+}
+
+/* Tech Highlights */
+.tech-highlights {
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateX(5px);
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 10px;
+}
+
+.highlight-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.highlight-text span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Enhanced Product Cards */
+.product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 400px;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(14, 165, 233, 0.9));
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.view-details-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.view-details-link:hover {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+.action-arrow {
+  transition: transform 0.3s ease;
+}
+
+.view-details-link:hover .action-arrow {
+  transform: translateX(5px);
+}
+
+.product-card:hover .action-arrow {
+  transform: translateX(5px);
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Enhanced News Cards */
+.news-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 400px;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-img {
+  transform: scale(1.05);
+}
+
+.news-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.meta-date {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.meta-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Contact Actions */
+.contact-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes circuitFlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes circuitPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .tech-grid {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .stats-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tech-grid {
+    width: 200px;
+    height: 200px;
+    gap: 1rem;
+  }
+  
+  .tech-item {
+    font-size: 2rem;
+  }
+  
+  /* Mobile card adjustments */
+  .product-card,
+  .news-card {
+    min-height: 350px;
+  }
+  
+  .card-image {
+    height: 180px;
+  }
+  
+  .card-body {
+    padding: 1.2rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .meta-category {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card,
+  .news-card {
+    min-height: 320px;
+  }
+  
+  .card-image {
+    height: 160px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 0.95rem;
+  }
+  
+  .card-description {
+    font-size: 0.85rem;
+  }
+}
+</style>
+
+<script>
+// Hero Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  let currentSlide = 0;
+  
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+  
+  // Auto-advance carousel every 4 seconds
+  setInterval(nextSlide, 4000);
+  
+  // Initialize first slide
+  showSlide(0);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,1066 @@
+{% extends "base.html" %}
+
+{% block title %}Technologies | Quxiang Technology Limited{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero technologies-hero" id="hero-slider">
+  <!-- Background Image Carousel (same as main) -->
+  <div class="hero-carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="{{ url_for('static', filename='images/back1.jpg') }}" alt="Green Energy" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back2.jpg') }}" alt="Heating & HVAC" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back3.jpg') }}" alt="Agriculture" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back4.jpg') }}" alt="Smart Home" class="carousel-image">
+      </div>
+    </div>
+    <div class="carousel-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title">
+        <span class="title-line">Civil Technology</span>
+        <span class="title-line highlight">Solutions</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        Green energy, heating & HVAC, agriculture, and smart home
+      </p>
+    </div>
+    <div class="hero-visual" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+      <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/test4.jpg') }}" alt="Technology Development" class="hero-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Smart City Solutions -->
+<section class="section smart-city-section" data-aos="fade-up" id="smart-city">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-text">Smart City</span>
+        <span class="title-text highlight">Solutions</span>
+      </h2>
+      <p class="section-subtitle">Urban logistics, e‑mobility, public safety and energy efficiency</p>
+    </div>
+
+    <div class="smart-grid">
+      <article class="smart-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="smart-image">
+          <img src="{{ url_for('static', filename='images/robot.jpg') }}" alt="Autonomous Delivery Robot" class="smart-img">
+          <div class="smart-badge">Logistics</div>
+        </div>
+        <div class="smart-content">
+          <h3>Autonomous Delivery Robot</h3>
+          <p>AI navigation with LiDAR, safe pedestrian interaction and secure contactless delivery for last‑mile logistics.</p>
+          <div class="smart-meta">
+            <span class="meta-tag">Autonomous</span>
+            <span class="meta-tag">AI</span>
+            <span class="meta-tag">Smart City</span>
+          </div>
+          <a href="/news/1" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+
+      <article class="smart-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="smart-image">
+          <img src="{{ url_for('static', filename='images/charge.jpg') }}" alt="Smart Charger Station" class="smart-img">
+          <div class="smart-badge">e-Mobility</div>
+        </div>
+        <div class="smart-content">
+          <h3>Smart Charger Station</h3>
+          <p>Ultra‑fast EV charging up to 350 kW, V2G support and AI‑based load management with renewable energy optimization.</p>
+          <div class="smart-meta">
+            <span class="meta-tag">EV</span>
+            <span class="meta-tag">Smart Grid</span>
+            <span class="meta-tag">V2G</span>
+          </div>
+          <a href="/news/2" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+
+      <article class="smart-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="smart-image">
+          <img src="{{ url_for('static', filename='images/cleverdom.jpg') }}" alt="Smart Home Automation" class="smart-img">
+          <div class="smart-badge">Residential</div>
+        </div>
+        <div class="smart-content">
+          <h3>Smart Home Automation</h3>
+          <p>Integrated IoT platform for safety, comfort and energy savings with voice control and Matter compatibility.</p>
+          <div class="smart-meta">
+            <span class="meta-tag">IoT</span>
+            <span class="meta-tag">Energy</span>
+            <span class="meta-tag">Voice</span>
+          </div>
+          <a href="/news/4" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Smart Home Solutions removed per simplification -->
+
+<!-- Company Overview -->
+<section class="section overview-section">
+  <div class="container">
+    <div class="overview-content" data-aos="fade-up">
+      <div class="overview-text">
+        <h2>Quxiang Technology Limited</h2>
+        <p>We design practical solutions for the civilian sector by combining electronics, sensors, connectivity, and software. Our goal is to save energy and improve comfort and efficiency in homes, buildings, and agricultural facilities.</p>
+        
+        <div class="core-competencies">
+          <h3>Core Competencies</h3>
+          <p>Four focus domains:</p>
+          <ul class="competencies-list">
+            <li>Green Energy (solar PV, energy storage)</li>
+            <li>Heating & HVAC (heat pumps, smart thermostats)</li>
+            <li>Agriculture (smart irrigation, soil and climate sensors)</li>
+            <li>Smart Home (lighting, security, climate)</li>
+          </ul>
+          <p class="highlight-text">We do not sell technology products – instead, we develop new product solutions. With the developed project, your company gets all intellectual property rights and a full package of documents for the finished product.</p>
+        </div>
+      </div>
+      <div class="overview-visual" data-aos="fade-left" data-aos-delay="200">
+        <div class="overview-image">
+          <img src="{{ url_for('static', filename='images/test5.jpg') }}" alt="Circuit Development" class="overview-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Design Model -->
+<section class="section design-model-section" style="background: var(--surface-dark);">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">
+        <span class="title-text">Design Model for</span>
+        <span class="title-text highlight">Product Development</span>
+      </h2>
+      <p class="section-subtitle">Complete product lifecycle management from concept to production</p>
+    </div>
+    
+    <div class="design-process">
+      <div class="process-description" data-aos="fade-up">
+        <p>Quxiang can take responsibility for the development of your technology product throughout the product life cycle, from the initial product idea to the finished product, and on to production management after the development process is complete.</p>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+          <img src="{{ url_for('static', filename='images/idea.jpg') }}" alt="Idea Development" class="step-img">
+          <div class="step-content">
+            <h3><a href="#" class="step-link">Idea Development</a></h3>
+            <p>At the stage of idea development, Quxiang clarifies whether your company's plans concerning technology product development matches Quxiang's competencies and resources.</p>
+          </div>
+        </div>
+        
+        <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+          <img src="{{ url_for('static', filename='images/CD.jpg') }}" alt="Concept Development" class="step-img">
+          <div class="step-content">
+            <h3><a href="#" class="step-link">Concept Development</a></h3>
+            <p>After the concept is approved, Quxiang develops the specifications for the development project and agrees to your company's final terms regarding savings and deadlines.</p>
+          </div>
+        </div>
+        
+        <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+          <img src="{{ url_for('static', filename='images/DP.jpg') }}" alt="Development Phase" class="step-img">
+          <div class="step-content">
+            <h3><a href="#" class="step-link">Development Phase</a></h3>
+            <p>During development, Quxiang completes the project, documentation, prototypes, and all testing and approval of your new technology product.</p>
+          </div>
+        </div>
+        
+        <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+          <img src="{{ url_for('static', filename='images/PM2.jpg') }}" alt="Production Management" class="step-img">
+          <div class="step-content">
+            <h3><a href="#" class="step-link">Production Management</a></h3>
+            <p>After development, Quxiang launches pilot production and completes the new product introduction (NPI). We can also manage mass production if needed.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-manager" data-aos="fade-up" data-aos-delay="500">
+        <div class="manager-content">
+          <h3>Dedicated Project Manager</h3>
+          <p>When you choose Quxiang as your company's new product technology development partner, you get one project manager committed to your development project. The project manager is responsible for the progress and continuity of the project throughout the development process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proof of Concept section removed by request -->
+
+<!-- Product Development -->
+<section class="section product-dev-section" style="background: var(--surface-dark);">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">
+        <span class="title-text">Our</span>
+        <span class="title-text highlight"><a href="/technologies" class="section-link">Domains</a></span>
+      </h2>
+      <p class="section-subtitle">Applied solutions and integration tailored to customer needs</p>
+    </div>
+    
+    <div class="dev-content" data-aos="fade-up">
+      <div class="dev-description">
+        <p>With Quxiang as your development partner, you will be well focused on the best product solutions. Quxiang's core competencies are developments in a wide range of technologies, including:</p>
+      </div>
+      
+      <div class="technologies-grid">
+        <div class="tech-category" data-aos="zoom-in" data-aos-delay="100">
+          <div class="tech-icon">☀️</div>
+          <h3>Green Energy</h3>
+          <ul>
+            <li>Solar PV systems</li>
+            <li>Battery storage</li>
+            <li>Smart inverters & monitoring</li>
+            <li>Energy management</li>
+          </ul>
+        </div>
+        
+        <div class="tech-category" data-aos="zoom-in" data-aos-delay="200">
+          <div class="tech-icon">♨️</div>
+          <h3>Heating & HVAC</h3>
+          <ul>
+            <li>Heat pumps & boilers control</li>
+            <li>Smart thermostats</li>
+            <li>Hydraulics balancing</li>
+            <li>Remote monitoring</li>
+          </ul>
+        </div>
+        
+        <div class="tech-category" data-aos="zoom-in" data-aos-delay="300">
+          <div class="tech-icon">🌾</div>
+          <h3>Agriculture & Smart Home</h3>
+          <ul>
+            <li>Smart irrigation & soil sensors</li>
+            <li>Greenhouse climate control</li>
+            <li>Lighting, security, voice control</li>
+            <li>Gateways and cloud integration</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-section" data-aos="fade-up" data-aos-delay="400">
+        <h3>Our Development Experience</h3>
+        <p>Since 2008, Quxiang has been developing technology products for industrial customers with their own product range, government agencies and start-up companies. Our experience in product development includes:</p>
+        
+        <div class="experience-list">
+          <div class="exp-item">
+            <div class="exp-icon">🔌</div>
+            <span>Hardware Development</span>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">💻</div>
+            <span>Embedded Software & Firmware</span>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">⚙️</div>
+            <span>Mechanical Design</span>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">🏭</div>
+            <span>Design for Production</span>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">📄</div>
+            <span>Documentation & Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Production Management -->
+<section class="section production-section">
+  <div class="container">
+    <div class="production-content" data-aos="fade-up">
+      <div class="production-text">
+        <h2 class="section-title">
+          <span class="title-text">Production</span>
+          <span class="title-text highlight"><a href="#" class="section-link">Management</a></span>
+        </h2>
+        <p>Our full service concept involves transforming your product idea into a successful turnkey product solution with production management throughout the value chain and product life cycle. Quxiang offers new product introductions (NPIs).</p>
+        
+        <div class="production-services">
+          <h3>Our Production Management Experience Includes:</h3>
+          <div class="services-grid">
+            <div class="service-item">
+              <div class="service-icon">🤝</div>
+              <span>Cooperation with EMS</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">📋</div>
+              <span>Production Documentation</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">🎯</div>
+              <span>Control & Emergency Plans</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">🧪</div>
+              <span>Test Planning & Coverage</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">✅</div>
+              <span>Quality Assurance</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">📦</div>
+              <span>Packaged Solutions</span>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">🚚</div>
+              <span>Delivery Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="production-visual" data-aos="fade-left" data-aos-delay="200">
+        <div class="production-image">
+          <img src="{{ url_for('static', filename='images/PM.jpg') }}" alt="Production Management" class="production-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="section contact-cta">
+  <div class="container">
+    <div class="cta-content" data-aos="fade-up">
+      <h2>Ready to Develop Your Technology Product?</h2>
+      <p>Let's discuss how Quxiang can help transform your product idea into a successful technology solution.</p>
+      <div class="cta-buttons">
+        <a href="/contacts" class="btn btn-primary">
+          <span>Start Your Project</span>
+          <div class="btn-effect"></div>
+        </a>
+        <a href="/developments" class="btn btn-secondary">
+          <span>View Our Work</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Hero background carousel (same as main) */
+.hero {
+  position: relative;
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+.hero-carousel { position:absolute; inset:0; z-index:1; }
+.carousel-track { position:relative; width:100%; height:100%; }
+.carousel-slide { position:absolute; inset:0; opacity:0; transition:opacity 2s ease-in-out; }
+.carousel-slide.active { opacity:1; }
+.carousel-image { width:100%; height:100%; object-fit:cover; filter:brightness(0.4) blur(1px); }
+.carousel-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.25) 100%); z-index:2; }
+
+.technologies-hero .hero-content { position:relative; z-index:3; }
+/* Technologies Hero */
+.technologies-hero {
+  position: relative;
+  color: white;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.title-line {
+  display: block;
+}
+
+.title-line.highlight {
+  color: var(--accent-light);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-accent);
+}
+
+.hero-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Overview Section */
+.overview-section {
+  padding: 4rem 0;
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.overview-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.overview-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.core-competencies {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border);
+}
+
+.core-competencies h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.competencies-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.competencies-list li {
+  padding: 0.5rem 0;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.competencies-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.highlight-text {
+  background: rgba(30, 64, 175, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1rem;
+}
+
+.overview-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.overview-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.overview-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Design Model Section */
+.design-model-section {
+  padding: 4rem 0;
+}
+
+/* Align intro text normally (left) within Design Model block */
+.design-model-section .section-header {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.design-model-section .section-subtitle {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.process-description {
+  text-align: left;
+  margin: 0 auto 3rem;
+  max-width: 1000px;
+}
+
+.process-description p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.process-steps {
+  margin-bottom: 3rem;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.process-step:nth-child(even) {
+  grid-template-columns: 1fr 1fr;
+}
+
+.process-step:nth-child(even) .step-image {
+  order: 2;
+}
+
+.process-step:nth-child(even) .step-content {
+  order: 1;
+}
+
+.step-image {
+  width: 100%;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  background: transparent;
+  display: block;
+  min-height: 0;
+}
+
+.step-img {
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  max-height: 320px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.step-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.step-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.project-manager {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--accent);
+  text-align: center;
+}
+
+.manager-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.manager-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Proof of Concept Section */
+.poc-section {
+  padding: 4rem 0;
+}
+
+.poc-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.poc-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.poc-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.expertise-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border);
+}
+
+.expertise-icon {
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
+
+.expertise-item span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.poc-benefit {
+  background: rgba(30, 64, 175, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.poc-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.poc-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.poc-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Product Development Section */
+.product-dev-section {
+  padding: 4rem 0;
+}
+
+.dev-description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dev-description p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tech-category {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.tech-category:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-accent);
+  border-color: var(--accent);
+}
+
+.tech-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tech-category h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.tech-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-category li {
+  padding: 0.5rem 0;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.tech-category li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.experience-section {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border);
+}
+
+.experience-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.experience-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface-dark);
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+}
+
+.exp-icon {
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
+
+.exp-item span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Production Management Section */
+.production-section {
+  padding: 4rem 0;
+}
+
+.production-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.production-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.production-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.production-services h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border);
+}
+
+.service-icon {
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
+
+.service-item span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.production-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.production-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.production-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Clickable Links */
+.step-link, .section-link {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+.step-link:hover, .section-link:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.step-link::after, .section-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.step-link:hover::after, .section-link:hover::after {
+  width: 100%;
+}
+
+/* Contact CTA */
+.contact-cta {
+  padding: 4rem 0;
+  background: var(--accent-secondary);
+  color: white;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Smart City Section */
+.smart-city-section { padding: 4rem 0; background: var(--surface); }
+.smart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.smart-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); transition: transform .3s ease, box-shadow .3s ease; display: flex; flex-direction: column; }
+.smart-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+.smart-image { position: relative; height: 220px; background: #000; display: flex; align-items: center; justify-content: center; }
+.smart-img { width: 100%; height: 100%; object-fit: contain; transition: transform .3s ease; }
+.smart-card:hover .smart-img { transform: scale(1.05); }
+.smart-badge { position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: white; padding: .3rem .8rem; border-radius: 14px; font-size: .8rem; font-weight: 600; }
+.smart-content { padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; flex: 1; }
+.smart-content h3 { margin: 0 0 .25rem; color: var(--text); font-size: 1.2rem; }
+.smart-content p { color: var(--text-muted); line-height: 1.6; }
+.smart-meta { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .25rem; }
+.meta-tag { background: rgba(59,130,246,0.1); color: var(--accent); padding: .2rem .6rem; border-radius: 10px; font-size: .75rem; font-weight: 600; }
+
+/* Simplified: remove extra blocks */
+
+@media (max-width: 768px) {
+  .smart-grid { grid-template-columns: 1fr; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .overview-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .process-step {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .process-step:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-step:nth-child(even) .step-image,
+  .process-step:nth-child(even) .step-content {
+    order: unset;
+  }
+  
+  .poc-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .production-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .technologies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .experience-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+{% endblock %}

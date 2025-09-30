@@ -1,0 +1,480 @@
+{% extends "base.html" %}
+
+{% block title %}Our Developments | Quxiang Technology Limited{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" id="hero-slider">
+  <!-- Background Image Carousel (same as main) -->
+  <div class="hero-carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="{{ url_for('static', filename='images/back1.jpg') }}" alt="Green Energy" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back2.jpg') }}" alt="Heating & HVAC" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back3.jpg') }}" alt="Agriculture" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back4.jpg') }}" alt="Smart Home" class="carousel-image">
+      </div>
+    </div>
+    <div class="carousel-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <h1>OUR DEVELOPMENTS</h1>
+    <p>Innovative solutions and cutting-edge technologies developed by our expert team</p>
+  </div>
+</section>
+
+<!-- Development Overview -->
+<section class="section" data-aos="fade-up">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col-text">
+        <h2>Technology Excellence</h2>
+        <p>Quxiang Technology Limited has strong competencies across a wide range of technologies including electronics, motor controls, sensors, embedded software, smart device applications, connectivity, wireless communication, communication protocols, patented solutions, internet of things (IoT), gateways, and more.</p>
+        <p>We can develop reliable electronic products for various markets, industries and environments. Our team manages complex projects from product idea to concept, development, pilot production, manufacturing and subsequent production management.</p>
+        <div class="tech-stats">
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="{{ url_for('static', filename='images/Technology.jpg') }}" alt="Circuit Board Development" class="full-width-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="section" style="background: var(--surface);" data-aos="fade-up">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="zoom-in">
+        <div class="project-image">
+          <img src="{{ url_for('static', filename='images/robot.jpg') }}" alt="Autonomous Delivery Robot">
+          <div class="project-overlay">
+            <div class="project-tech">Robotics</div>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Autonomous Delivery Robot</h3>
+          <p>AI‑powered delivery robot for smart‑city logistics: LiDAR navigation, obstacle avoidance and secure contactless delivery.</p>
+          <div class="project-features">
+            <span class="feature-tag">AI</span>
+            <span class="feature-tag">Autonomous</span>
+            <span class="feature-tag">Smart City</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="project-image">
+          <img src="{{ url_for('static', filename='images/charge.jpg') }}" alt="Smart Charger Station">
+          <div class="project-overlay">
+            <div class="project-tech">Industrial</div>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Smart Charger Station</h3>
+          <p>Ultra‑fast EV charging up to 350 kW with smart‑grid integration, V2G support and renewable energy optimization.</p>
+          <div class="project-features">
+            <span class="feature-tag">EV</span>
+            <span class="feature-tag">Smart Grid</span>
+            <span class="feature-tag">V2G</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="project-image">
+          <img src="{{ url_for('static', filename='images/cleverdom.jpg') }}" alt="Smart Home Automation">
+          <div class="project-overlay">
+            <div class="project-tech">Smart Home</div>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Smart Home Automation</h3>
+          <p>Comprehensive home automation platform: IoT датчики, управление энергией, голосовое управление и сценарии комфортной жизни.</p>
+          <div class="project-features">
+            <span class="feature-tag">IoT</span>
+            <span class="feature-tag">Energy</span>
+            <span class="feature-tag">Voice</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Expertise -->
+<section class="section" data-aos="fade-up">
+  <div class="container">
+    <h2 class="section-title">Our Technology Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="expertise-icon">🔌</div>
+        <h3>Electronics</h3>
+        <p>From simple layouts to advanced designs for both analogue and digital electronics, including the latest wired and wireless microcontrollers.</p>
+        <ul class="expertise-list">
+          <li>Circuit Design & Layout</li>
+          <li>Power Electronics</li>
+          <li>Signal Processing</li>
+          <li>Microcontroller Integration</li>
+        </ul>
+      </div>
+      
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="expertise-icon">🧠</div>
+        <h3>Embedded Software</h3>
+        <p>Real-time systems and firmware development for microcontrollers with focus on performance and reliability.</p>
+        <ul class="expertise-list">
+          <li>Real-time Systems</li>
+          <li>Firmware Development</li>
+          <li>Device Drivers</li>
+          <li>System Optimization</li>
+        </ul>
+      </div>
+      
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="expertise-icon">🌐</div>
+        <h3>IoT Solutions</h3>
+        <p>Complete IoT ecosystem development from smart devices to cloud platforms and data analytics.</p>
+        <ul class="expertise-list">
+          <li>Smart Device Development</li>
+          <li>Gateway Solutions</li>
+          <li>Cloud Integration</li>
+          <li>Data Analytics</li>
+        </ul>
+      </div>
+      
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="expertise-icon">📡</div>
+        <h3>Wireless Communication</h3>
+        <p>Advanced wireless protocols and connectivity solutions for industrial and consumer applications.</p>
+        <ul class="expertise-list">
+          <li>Protocol Development</li>
+          <li>RF Design</li>
+          <li>Antenna Optimization</li>
+          <li>Network Security</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Development Process -->
+<section class="section" style="background: var(--surface);" data-aos="fade-up">
+  <div class="container">
+    <h2 class="section-title">Our Development Process</h2>
+    <div class="process-timeline">
+      <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Concept & Planning</h3>
+          <p>We start with understanding your requirements and creating a detailed project roadmap.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Design & Prototyping</h3>
+          <p>Our engineers create detailed designs and build functional prototypes for testing.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Development & Testing</h3>
+          <p>Rigorous development process with continuous testing and optimization.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3>Production & Support</h3>
+          <p>Manufacturing setup and ongoing support for your product lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section" data-aos="fade-up">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title">Ready to Start Your Project?</h2>
+    <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+      Let's discuss how we can bring your innovative ideas to life with our cutting-edge technology solutions.
+    </p>
+    <a href="/contacts" class="btn">Start Your Project</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Hero background carousel (same as main) */
+.hero { position: relative; min-height: 50vh; overflow: hidden; }
+.hero-carousel { position:absolute; inset:0; z-index:1; }
+.carousel-track { position:relative; width:100%; height:100%; }
+.carousel-slide { position:absolute; inset:0; opacity:0; transition:opacity 2s ease-in-out; }
+.carousel-slide.active { opacity:1; }
+.carousel-image { width:100%; height:100%; object-fit:cover; filter:brightness(0.4) blur(1px); }
+.carousel-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.25) 100%); z-index:2; }
+.hero .hero-content { position:relative; z-index:3; }
+.tech-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.project-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.project-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-features {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.expertise-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.expertise-card:hover {
+  transform: translateY(-5px);
+}
+
+.expertise-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.expertise-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.expertise-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.expertise-list li {
+  padding: 0.5rem 0;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.expertise-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.process-timeline {
+  max-width: 800px;
+  margin: 3rem auto;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.process-step:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.step-number {
+  background: var(--primary);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 2rem;
+  flex-shrink: 0;
+}
+
+.step-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+.step-content h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.step-content p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .tech-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-step {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  
+  .process-step:nth-child(even) {
+    flex-direction: column !important;
+  }
+  
+  .step-number {
+    margin: 0 0 1rem 0;
+  }
+}
+</style>
+{% endblock %}

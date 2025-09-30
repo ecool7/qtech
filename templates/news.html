@@ -1,0 +1,784 @@
+{% extends "base.html" %}
+
+{% block title %}Latest News | Quxiang Technology Limited{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero news-hero" id="hero-slider">
+  <!-- Background Image Carousel (same as main) -->
+  <div class="hero-carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="{{ url_for('static', filename='images/back1.jpg') }}" alt="Green Energy" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back2.jpg') }}" alt="Heating & HVAC" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back3.jpg') }}" alt="Agriculture" class="carousel-image">
+      </div>
+      <div class="carousel-slide">
+        <img src="{{ url_for('static', filename='images/back4.jpg') }}" alt="Smart Home" class="carousel-image">
+      </div>
+    </div>
+    <div class="carousel-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title">
+        <span class="title-line">Latest</span>
+        <span class="title-line highlight">News</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        Stay updated with the latest technology trends, innovations, and industry developments
+      </p>
+    </div>
+    <div class="hero-visual" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+      <div class="news-stats">
+        <div class="stat-item">
+          <div class="stat-number">{{ articles|length }}+</div>
+          <div class="stat-label">Articles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2024</div>
+          <div class="stat-label">Latest</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Filter -->
+<section class="section filter-section" data-aos="fade-up">
+  <div class="container">
+    <div class="filter-container">
+      <h3>Filter by Category</h3>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="Hardware">Hardware</button>
+        <button class="filter-btn" data-category="Technology">Technology</button>
+        <button class="filter-btn" data-category="IoT">IoT</button>
+        <button class="filter-btn" data-category="Power">Power</button>
+        <button class="filter-btn" data-category="Security">Security</button>
+        <button class="filter-btn" data-category="Industrial">Industrial</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Articles -->
+<section class="section news-section" data-aos="fade-up">
+  <div class="container">
+    <div class="news-grid" id="news-grid">
+      {% for article in articles %}
+      <article class="news-article" data-category="{{ article.category }}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+        <div class="article-image">
+          <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}" class="article-img">
+          <div class="article-category">{{ article.category }}</div>
+          <div class="article-overlay">
+            <div class="overlay-content">
+              <div class="read-more">
+                <span>Read More</span>
+                <div class="read-arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article-content">
+          <div class="article-meta">
+            <span class="article-date">{{ article.date }}</span>
+            <div class="article-tags">
+              {% for tag in article.tags[:2] %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <h2 class="article-title">{{ article.title }}</h2>
+          <p class="article-description">{{ article.description }}</p>
+          <div class="article-footer">
+            <div class="article-tags-full">
+              {% for tag in article.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <a href="/news/{{ article.id }}" class="read-btn">
+              <span>Read Full Article</span>
+              <div class="btn-effect"></div>
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    
+    <!-- Load More Button -->
+    <div class="load-more-container" data-aos="fade-up">
+      <button class="btn btn-outline" id="load-more-btn">
+        <span>Load More Articles</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Subscription -->
+<section class="section newsletter-section" style="background: var(--surface);" data-aos="fade-up">
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter and never miss the latest technology news and updates.</p>
+      </div>
+      <div class="newsletter-form">
+        <form class="subscription-form">
+          <div class="form-group">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">
+              <span>Subscribe</span>
+              <div class="btn-effect"></div>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Article Modal -->
+<div class="modal" id="article-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modal-title"></h2>
+      <button class="modal-close" onclick="closeArticle()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+        <img id="modal-image" src="" alt="">
+        <div class="modal-category" id="modal-category"></div>
+      </div>
+      <div class="modal-meta">
+        <span id="modal-date"></span>
+        <div class="modal-tags" id="modal-tags"></div>
+      </div>
+      <div class="modal-text" id="modal-content"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Hero background carousel (same as main) */
+.hero { position: relative; min-height: 50vh; overflow: hidden; }
+.hero-carousel { position:absolute; inset:0; z-index:1; }
+.carousel-track { position:relative; width:100%; height:100%; }
+.carousel-slide { position:absolute; inset:0; opacity:0; transition:opacity 2s ease-in-out; }
+.carousel-slide.active { opacity:1; }
+.carousel-image { width:100%; height:100%; object-fit:cover; filter:brightness(0.4) blur(1px); }
+.carousel-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.25) 100%); z-index:2; }
+.news-hero .hero-content { position:relative; z-index:3; }
+/* News Hero */
+.news-hero {
+  position: relative;
+  color: white;
+  min-height: 50vh;
+}
+
+.news-hero .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.news-stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.news-stats .stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.news-stats .stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.news-stats .stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Filter Section */
+.filter-section {
+  padding: 2rem 0;
+  background: var(--surface);
+}
+
+.filter-container {
+  text-align: center;
+}
+
+.filter-container h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* News Grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.news-article {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.news-article.hidden {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.news-article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.article-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.article-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-article:hover .article-img {
+  transform: scale(1.05);
+}
+
+.article-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.article-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(14, 165, 233, 0.9));
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-article:hover .article-overlay {
+  opacity: 1;
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.read-arrow {
+  transition: transform 0.3s ease;
+}
+
+.news-article:hover .read-arrow {
+  transform: translateX(5px);
+}
+
+.article-content {
+  padding: 2rem;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.article-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.article-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.article-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.article-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.article-tags-full {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.read-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.read-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.btn-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.read-btn:hover .btn-effect {
+  left: 100%;
+}
+
+/* Load More */
+.load-more-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Newsletter */
+.newsletter-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.newsletter-text h2 {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.newsletter-text p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.subscription-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-image {
+  position: relative;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.modal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.modal-text {
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .news-hero .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .news-stats {
+    justify-content: center;
+  }
+  
+  .newsletter-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 200px;
+  }
+  
+  .subscription-form {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header,
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .modal-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .news-stats .stat-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .article-content {
+    padding: 1.5rem;
+  }
+  
+  .article-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+{% endblock %}
+
+<script>
+// News filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const articles = document.querySelectorAll('.news-article');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Filter articles
+      articles.forEach(article => {
+        const articleCategory = article.getAttribute('data-category');
+        
+        if (category === 'all' || articleCategory === category) {
+          article.classList.remove('hidden');
+        } else {
+          article.classList.add('hidden');
+        }
+      });
+    });
+  });
+});
+
+// Article modal functionality
+function openArticle(articleId) {
+  // This would typically fetch article data from the server
+  // For now, we'll use placeholder data
+  const modal = document.getElementById('article-modal');
+  const articles = {{ articles|tojson }};
+  const article = articles.find(a => a.id === articleId);
+  
+  if (article) {
+    document.getElementById('modal-title').textContent = article.title;
+    document.getElementById('modal-image').src = `{{ url_for('static', filename='images/') }}${article.image}`;
+    document.getElementById('modal-category').textContent = article.category;
+    document.getElementById('modal-date').textContent = article.date;
+    document.getElementById('modal-content').textContent = article.content;
+    
+    // Clear and populate tags
+    const tagsContainer = document.getElementById('modal-tags');
+    tagsContainer.innerHTML = '';
+    article.tags.forEach(tag => {
+      const tagElement = document.createElement('span');
+      tagElement.className = 'tag';
+      tagElement.textContent = tag;
+      tagsContainer.appendChild(tagElement);
+    });
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeArticle() {
+  const modal = document.getElementById('article-modal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.getElementById('article-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeArticle();
+  }
+});
+
+// Newsletter subscription
+document.querySelector('.subscription-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.querySelector('input[type="email"]').value;
+  
+  // Here you would typically send the email to your server
+  alert('Thank you for subscribing! We\'ll keep you updated with the latest news.');
+  this.reset();
+});
+</script>

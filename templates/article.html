@@ -1,0 +1,753 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | Quxiang Technology Limited{% endblock %}
+
+{% block content %}
+<!-- Article Header -->
+<section class="article-header">
+  <div class="container">
+    <div class="breadcrumb" data-aos="fade-up">
+      <a href="/news">News</a>
+      <span class="breadcrumb-separator">›</span>
+      <span>{{ article.category }}</span>
+    </div>
+    
+    <div class="article-hero" data-aos="fade-up" data-aos-delay="200">
+      <div class="article-meta">
+        <div class="article-category-badge">{{ article.category }}</div>
+        <div class="article-date">{{ article.date }}</div>
+      </div>
+      
+      <h1 class="article-title">{{ article.title }}</h1>
+      <p class="article-subtitle">{{ article.description }}</p>
+      
+      <div class="article-tags">
+        {% for tag in article.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Article Image -->
+<section class="article-image-section" data-aos="fade-up">
+  <div class="container">
+    <div class="article-image-container">
+      <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}" class="article-main-image">
+      <div class="image-overlay">
+        <div class="image-caption">{{ article.title }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Article Content -->
+<section class="article-content-section">
+  <div class="container">
+    <div class="article-layout">
+      <div class="article-main">
+        <article class="article-body" data-aos="fade-up">
+          <div class="article-intro">
+            <p class="lead-text">{{ article.content }}</p>
+          </div>
+          
+          <div class="article-full-content">
+            {{ article.full_content|safe }}
+          </div>
+          
+          <div class="article-footer">
+            <div class="article-share">
+              <h4>Share this article</h4>
+              <div class="share-buttons">
+                <button class="share-btn" onclick="shareOnTwitter()">
+                  <span class="share-icon">🐦</span>
+                  <span>Twitter</span>
+                </button>
+                <button class="share-btn" onclick="shareOnLinkedIn()">
+                  <span class="share-icon">💼</span>
+                  <span>LinkedIn</span>
+                </button>
+                <button class="share-btn" onclick="shareOnFacebook()">
+                  <span class="share-icon">📘</span>
+                  <span>Facebook</span>
+                </button>
+                <button class="share-btn" onclick="copyLink()">
+                  <span class="share-icon">🔗</span>
+                  <span>Copy Link</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <aside class="article-sidebar" data-aos="fade-left" data-aos-delay="400">
+        <div class="sidebar-widget">
+          <h3>Related Articles</h3>
+          <div class="related-articles">
+            {% for related_article in articles[:2] %}
+              {% if related_article.id != article.id %}
+              <div class="related-article">
+                <div class="related-image">
+                  <img src="{{ url_for('static', filename='images/' + related_article.image) }}" alt="{{ related_article.title }}">
+                </div>
+                <div class="related-content">
+                  <h4><a href="/news/{{ related_article.id }}">{{ related_article.title }}</a></h4>
+                  <p>{{ related_article.description[:100] }}...</p>
+                  <div class="related-meta">
+                    <span class="related-date">{{ related_article.date }}</span>
+                    <span class="related-category">{{ related_article.category }}</span>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Newsletter</h3>
+          <div class="newsletter-widget">
+            <p>Stay updated with the latest technology news and insights.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit" class="btn btn-primary">
+                <span>Subscribe</span>
+                <div class="btn-effect"></div>
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="sidebar-widget">
+          <h3>Categories</h3>
+          <div class="category-list">
+            {% set categories = articles|map(attribute='category')|unique|list %}
+            {% for category in categories %}
+            <a href="/news?category={{ category }}" class="category-link">
+              <span class="category-name">{{ category }}</span>
+              <span class="category-count">{{ articles|selectattr('category', 'equalto', category)|list|length }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation -->
+<section class="article-navigation">
+  <div class="container">
+    <div class="nav-links">
+      <a href="/news" class="nav-link">
+        <div class="nav-icon">←</div>
+        <div class="nav-text">
+          <span>Back to News</span>
+          <small>All articles</small>
+        </div>
+      </a>
+      
+      <div class="nav-center">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Print Article</span>
+        </button>
+      </div>
+      
+      <a href="/contacts" class="nav-link">
+        <div class="nav-text">
+          <span>Contact Us</span>
+          <small>Get in touch</small>
+        </div>
+        <div class="nav-icon">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Article Header */
+.article-header {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.breadcrumb {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+}
+
+.article-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.article-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.article-category-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.article-date {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.article-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.article-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+/* Article Image */
+.article-image-section {
+  padding: 2rem 0;
+  background: var(--surface);
+}
+
+.article-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.article-main-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-image-container:hover .article-main-image {
+  transform: scale(1.02);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 2rem;
+  color: white;
+}
+
+.image-caption {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Article Content */
+.article-content-section {
+  padding: 4rem 0;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.article-body {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.article-intro {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.lead-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.article-full-content {
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.article-full-content h3 {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  font-weight: 700;
+}
+
+.article-full-content h3:first-child {
+  margin-top: 0;
+}
+
+.article-full-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.article-full-content ul {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.article-full-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.article-full-content strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+
+.article-share h4 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.share-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.share-icon {
+  font-size: 1.2rem;
+}
+
+/* Sidebar */
+.article-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-widget {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.sidebar-widget h3 {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.related-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.related-article {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.related-article:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.related-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.related-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-content h4 {
+  margin-bottom: 0.5rem;
+}
+
+.related-content h4 a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.related-content h4 a:hover {
+  color: var(--accent);
+}
+
+.related-content p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.related-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.related-date {
+  color: var(--text-muted);
+}
+
+.related-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+}
+
+.newsletter-widget p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: var(--surface);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.category-link:hover {
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateX(5px);
+}
+
+.category-name {
+  font-weight: 500;
+}
+
+.category-count {
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Article Navigation */
+.article-navigation {
+  background: var(--surface);
+  padding: 2rem 0;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.nav-text span {
+  font-weight: 600;
+  display: block;
+}
+
+.nav-text small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.nav-center {
+  flex: 1;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .article-title {
+    font-size: 2.5rem;
+  }
+  
+  .article-body {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-header {
+    padding: 2rem 0 1rem;
+  }
+  
+  .article-title {
+    font-size: 2rem;
+  }
+  
+  .article-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .article-main-image {
+    height: 300px;
+  }
+  
+  .article-body {
+    padding: 1.5rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-center {
+    order: -1;
+  }
+  
+  .share-buttons {
+    justify-content: center;
+  }
+  
+  .related-article {
+    flex-direction: column;
+  }
+  
+  .related-image {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-title {
+    font-size: 1.8rem;
+  }
+  
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .article-tags {
+    margin-top: 1rem;
+  }
+  
+  .article-body {
+    padding: 1rem;
+  }
+  
+  .sidebar-widget {
+    padding: 1.5rem;
+  }
+}
+</style>
+{% endblock %}
+
+<script>
+// Share functionality
+function shareOnTwitter() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(document.title);
+  window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+}
+
+function shareOnLinkedIn() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+}
+
+function shareOnFacebook() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    alert('Link copied to clipboard!');
+  });
+}
+
+// Newsletter subscription
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.querySelector('input[type="email"]').value;
+  
+  // Here you would typically send the email to your server
+  alert('Thank you for subscribing! We\'ll keep you updated with the latest news.');
+  this.reset();
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
